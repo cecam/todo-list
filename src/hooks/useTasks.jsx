@@ -35,7 +35,11 @@ const useTasks = () => {
     const getTasks = async () => {
         try {
             const { data } = await axiosClient.get('/tasks')
-            setTasks( data ? data : [] )
+            const orderedTasks = data.sort(({status}) => {
+                return status ? 1 : -1
+            })
+            
+            setTasks( data ? orderedTasks : [] )
         } catch (error) {
             console.log(error);
         }
@@ -44,7 +48,9 @@ const useTasks = () => {
     const updateTask = async task => {
         try {
             const { data } = await axiosClient.put(`/tasks/${task.id}`, task)
-            let newTasks = tasks.map(task => task.id === data.id ? data : task)
+            let newTasks = tasks.map(task => task.id === data.id ? data : task).sort(({status}) => {
+                return status ? 1 : -1
+            })
             setTasks(newTasks)
         } catch (error) {
             console.log(error);

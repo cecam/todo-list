@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import TasksCard from "../components/tasks/ToDo";
+import ToDo from "../components/tasks/ToDo";
 
 const Container = styled.div`
     display: flex;
@@ -14,7 +14,7 @@ const Container = styled.div`
 const Tasks = () => {
     return ( 
         <Container>
-            <TasksCard />
+            <ToDo />
         </Container>
     );
 }

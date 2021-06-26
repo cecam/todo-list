@@ -6,7 +6,7 @@ import { TaskElement } from "./TaskStyles";
 import { AiOutlineCheckCircle, AiFillDelete, AiFillEdit, AiOutlineRightCircle } from "react-icons/ai";
 
 const Task = ({id, name, status, setCallType}) => {
-    const [newName, setNewName] = useState('')
+    const [newName, setNewName] = useState(name)
     const [update, setUpdate] = useState(false)
 
     const updateNameTask = () => {
