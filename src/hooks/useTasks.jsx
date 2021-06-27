@@ -83,11 +83,13 @@ const useTasks = () => {
                     break
                 case 'update':
                     updateTask(callType.info)
+                     
                     break
                 default:
                     break;
             }
         }
+        // eslint-disable-next-line
     }, [callType])
 
     return {
