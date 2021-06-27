@@ -7,8 +7,11 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     height: calc(100vh - 60px);
-    padding: 25px 50px;
     background-color: var(--grey);
+
+    @media (max-width: 850px) {
+        height: calc(100vh - 100px);
+    }
 `
 
 const Tasks = () => {

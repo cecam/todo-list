@@ -2,14 +2,19 @@ import styled from '@emotion/styled'
 
 export const Card = styled.div`
     display: grid;
-    grid-auto-flow: row;
-    grid-template-rows: 150px minmax(50px, 400px) 80px;
+    grid-template-rows: 150px 1fr 80px;
     background-color: var(--white);
-    width: 800px;
+    width: 90%;
+    height: 600px;
     max-width: 1000px;
     max-height: 1000px;
     border-radius: 15px;
+    transition: .3s ease;
     overflow: hidden;
+
+    @media (max-width: 600px) {
+        grid-template-rows: 100px 1fr 80px;
+    }
 `
 
 export const TitleSection = styled.h1`
@@ -21,12 +26,14 @@ export const TitleSection = styled.h1`
     text-align: center;
     color: var(--blue);
     border-bottom: solid 1px var(--grey);
+    max-width: 90vw;
 `
 
 export const TaskSection = styled.div`
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
+    min-height: 300px;
 
     .message {
         display: flex;
@@ -56,9 +63,9 @@ export const TaskSection = styled.div`
 
 export const TaskElement = styled.div`
     display: grid;
-    grid-template-columns: minmax(50px, 100px) 1fr;
+    grid-template-columns: 100px 1fr;
     grid-template-rows: 100px;
-    width: 100%;
+    max-width: 90vw;
     border-top: solid 1px var(--grey);
     border-bottom: solid 1px var(--grey);
     transition: .5s ease;
@@ -98,6 +105,18 @@ export const TaskElement = styled.div`
         }
     }
 
+    @media (max-width: 600px) {
+        grid-template-columns: 70px 1fr;
+
+        div {
+            &:nth-child(2) {
+                display: flex;
+                padding: 0 10px;
+                justify-content: space-between;
+            }
+        }
+    }
+
     @-webkit-keyframes flip-in-hor-top {
         0% {
             -webkit-transform: rotateX(-80deg);
@@ -128,9 +147,14 @@ export const NewTaskSection = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 90vw;
     padding:  10px 50px;
     background-color: var(--blue);
     color: var(--white);
+
+    @media(max-width: 650px) {
+        padding: 10px 20px;
+    }
 `
 
 export const TaskForm = styled.form`

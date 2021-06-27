@@ -7,4 +7,8 @@ export const Icon = styled.button`
     color: ${({color}) => color };
     margin-left: 5px;
     cursor: pointer;
+
+    @media(max-width: 650px) {
+        font-size: 30px;
+    }
 `

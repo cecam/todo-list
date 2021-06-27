@@ -6,6 +6,7 @@ import {AuthContext} from '../../context/AuthContext'
 
 const Nav = styled.nav`
     display: grid;
+    grid-template-areas: "title text button";
     grid-template-columns: 150px 1fr 150px;
     align-items: center;
     height: 60px;
@@ -14,23 +15,33 @@ const Nav = styled.nav`
     background-color: var(--darkBlue);
 
     .title {
+        grid-area: title;
         font-size: 30px;
         text-align: center;
     }
 
     .text {
+        grid-area: text;
         padding-left: 25px;
         font-size: 20px;
 
     }
 
     button {
+        grid-area: button;
         padding: 5px 10px;
         background-color: transparent;
         color: var(--white);
         border: solid 1px var(--grey);
         cursor: pointer;
         width: 100%;
+    }
+
+    @media (max-width: 850px) {
+        height: 100px;
+        grid-template-areas:"title title"
+                            "text button";
+        grid-template-columns: 1fr 100px;
     }
 `
 
