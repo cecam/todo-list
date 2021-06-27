@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import AuthProvider from './context/AuthContext'
+import AlertProvider from './context/AlertContext'
 
 import PrivateRoute from "./components/layout/PrivateRoute";
 import Layout from './components/layout/Layout'
@@ -12,14 +13,16 @@ function App() {
   return (
     <>
       <AuthProvider>
-        <Layout>
-          <Router>
-            <Switch>
-              <Route exact path="/" component={HomePage} />
-              <PrivateRoute path="/todo-list" component={TasksPage} />
-            </Switch>
-          </Router>
-        </Layout>
+        <AlertProvider>
+          <Layout>
+            <Router>
+              <Switch>
+                <Route exact path="/" component={HomePage} />
+                <PrivateRoute path="/todo-list" component={TasksPage} />
+              </Switch>
+            </Router>
+          </Layout>
+        </AlertProvider>
       </AuthProvider>
     </>
   );

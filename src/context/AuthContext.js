@@ -15,9 +15,7 @@ const AuthProvider = ({children}) => {
             setUser(data[0])
             return null
         } else {
-            return {
-                message: 'El correo o la contraseña no coinciden'
-            }
+            return  'El correo o la contraseña no coinciden'
         }
     }
 

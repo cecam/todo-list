@@ -42,7 +42,7 @@ export const InputArea = styled.div`
         width: 100%;
         padding: 7px 10px;
         transition: .3s ease;
-        background: transparent;
+        background: white;
 
         &:hover {
             padding-left: 15px;

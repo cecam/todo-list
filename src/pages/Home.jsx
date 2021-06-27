@@ -14,6 +14,7 @@ const Container = styled.div`
     background: radial-gradient(circle at 85vw 55vh, rgba(238,238,238,1) 0%, #178186 100%);
 
     @media(max-width: 850px) {
+        height: calc(100vh - 100px);
         grid-template-columns: 1fr;
         background: radial-gradient(circle at 50vw 80vh, rgba(238,238,238,1) 0%, #178186 60%);
     }

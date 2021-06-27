@@ -3,6 +3,9 @@ import { Global, css } from '@emotion/react'
 import styled from '@emotion/styled'
 
 import {AuthContext} from '../../context/AuthContext'
+import {AlertContext} from '../../context/AlertContext'
+
+import Alert from '../alerts/Alert'
 
 const Nav = styled.nav`
     display: grid;
@@ -47,6 +50,7 @@ const Nav = styled.nav`
 
 const Layout = ({children}) => {
     const { user, signOut } = useContext(AuthContext)
+    const { showAlert } = useContext(AlertContext)
     return ( 
         <>
             <Global 
@@ -87,7 +91,9 @@ const Layout = ({children}) => {
                 }
             </Nav>
             {children}
-            
+            {
+                showAlert && <Alert />
+            }
         </>
     );
 }

@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
 
 import { AuthContext } from '../../context/AuthContext'
+import { AlertContext } from '../../context/AlertContext'
 
 import { LoginSection, LoginForm, InputArea } from "./AuthStyles";
 
 const Login = ({history}) => {
     const { signIn } = useContext(AuthContext)
+    const { displayAlert } = useContext(AlertContext)
     const [ userInfo, setUserInfo ] = useState({
         email: '',
         password: ''
@@ -23,6 +25,13 @@ const Login = ({history}) => {
         e.preventDefault()
 
         const response = await signIn(userInfo)
+
+        if(response) {
+            displayAlert(response)
+            return
+        }
+
+
         if(!response) history.push('todo-list')
     }
 
